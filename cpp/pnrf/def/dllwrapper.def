@@ -1,0 +1,13 @@
+LIBRARY pnrfr
+
+EXPORTS
+processDirectory
+readFileMeta 
+readFileRecordMeta
+readFileChannelMeta
+getChannelDataSize 
+readChannelData 
+saveChannelData
+getSegmentDataSize
+readSegmentData
+computeMovingAverage
