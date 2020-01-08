@@ -13,7 +13,7 @@ namespace pnrfr {
 	}
 
 	void PnrfError::setComError(_com_error const err, char** & msg) {
-		const std::string val(err.ErrorMessage());
+		const std::wstring val(err.ErrorMessage());
 		copy(std::begin(val), std::end(val), *msg);
 		*(*msg + val.size()) = '\0';
 	}

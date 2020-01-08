@@ -16,7 +16,6 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
 Imports:
-    anomalousACM (>= 0.1.0),
     e1071 (>= 1.6-8)
 Suggests: 
     testthat

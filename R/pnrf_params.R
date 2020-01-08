@@ -49,32 +49,3 @@ create_pnrfr_obj <- function(file_path, channel_meta,
 
   return(result)
 }
-
-# Gets default params for alarm generation
-# window_width, time_limit, threshold
-get_alarm_info <- function(arguments){
-  window_width <- 100
-  time_limit <- 10
-  threshold <- 0.01
-
-
-  check_numbers <- function(varible){
-    return (!is.null(arguments[[varible]]) && is.numeric(arguments[[varible]])
-            && as.numeric(arguments[[varible]]))
-  }
-  if(check_numbers('window_width')){
-    window_width <- arguments[['window_width']]
-  }
-  if(check_numbers('time_limit')){
-    time_limit <- arguments[['time_limit']]
-  }
-  if(check_numbers('threshold')){
-    threshold <- arguments[['threshold']]
-  }
-
-  alarm_info <- list('window_width' = window_width,
-                     'time_limit' = time_limit,
-                     'threshold' = threshold)
-
-  return(alarm_info)
-}

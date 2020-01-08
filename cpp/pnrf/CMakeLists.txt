@@ -7,7 +7,7 @@ include_directories(include)
 
 # Add source to this project's executable.
 file(GLOB SOURCES "*.cpp")
-add_library(pnrf SHARED ${SOURCES})
+add_library(pnrf SHARED ${SOURCES} "def/dllwrapper.def")
 
 #add_library (pnrf  "stdafx.cpp" "stdafx.h" "targetver.h" 
 #"ioffline.h" "filemeta.h" "fileprocessor.h" "pnrferror.h" "pnrfhelper.h" 

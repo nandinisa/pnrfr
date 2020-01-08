@@ -10,5 +10,6 @@
 
 .onUnload <- function(libpath){
   print('unloading...')
-  dyn.unload(sprintf('libs%s/pnrfr.dll', Sys.getenv("R_ARCH")))
+  # dyn.unload(sprintf('libs%s/pnrfr.dll', Sys.getenv("R_ARCH")))
+  dyn.unload('pnrfr.dll')
 }
