@@ -1,7 +1,6 @@
 check <- function(type, arg){
 
   check_file <- function(){
-    print(getwd())
     if(!file.exists(arg) | (file.access(arg, mode = 4) != 0)){
       stop("Please check if the file exists and you have read access")
     }
