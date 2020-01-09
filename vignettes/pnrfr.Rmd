@@ -1,0 +1,48 @@
+---
+title: "pnrfr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{pnrfr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+# library(pnrfr)
+```
+
+
+# Introduction
+
+The R package pnrfr helps to read channel data and meta information from PNRF files. The package requires the installation of [PNRF Reader Toolkit](https://www.hbm.com/en/2475/support-downloads-perception/
+), which is windows dependant. Thus, the package is only supported on windows machine.  
+
+# Installation
+
+You can install the PNRFR package using: 
+
+```{r}
+devtools::install_github("nandinisa/pnrfr")
+```
+
+# Examples
+
+## PNRF read functions
+
+* read_file_meta - Reads the meta data of a PNRF file
+* read_channel_data_obs - Reads the total obs in a given channel from a PNRF file
+* read_channel_data - Reads the specified channel data from a PNRF file (at a given samplinng rate)
+* read_all_channel_data - Reads all available channel data from a PNRF file (at a given samplinng rate)
+* read_segment_data - Reads the segment data corresponding to a channel from a PNRF file (at a given samplinng rate)
+* save_channel_data.to_csv - Save channel data to csv
+
+## PNRF RMS function
+
+* compute_moving_average - Computes the moving average for a channel in a PNRF file given a moving window

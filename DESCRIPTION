@@ -18,7 +18,10 @@ RoxygenNote: 7.0.2
 Imports:
     R.utils(>= 2.9.2)
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Depends: 
     R (>= 3.6)
 SystemRequirements: HBM PNRF Reader
+VignetteBuilder: knitr

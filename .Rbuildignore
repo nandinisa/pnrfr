@@ -6,3 +6,5 @@
 ^.*\.vs$
 ^pnrfr\.Rproj$
 ^cpp\^output$
+^doc$
+^Meta$
