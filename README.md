@@ -2,7 +2,7 @@
 # pnrfr
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/nandinisa/pnrfr.svg?branch=master)](https://travis-ci.org/nandinisa/pnrfr)
+
 <!-- badges: end -->
 
 The R package pnrfr helps to read channel data and meta information from PNRF files. The package requires the installation of [PNRF Reader Toolkit](https://www.hbm.com/en/2475/support-downloads-perception/
