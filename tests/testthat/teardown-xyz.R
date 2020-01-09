@@ -1,4 +1,4 @@
 writeLines('Cleaning up test environment ...')
-#dyn.unload('bin/pnrfr.dll')
+dyn.unload('C:/pnrfr/inst/libs/x64/pnrfr.dll')
 
-writeLines('Dll unloaded ...')
+writeLines('Dll unloaded moo...')

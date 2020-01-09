@@ -2,7 +2,7 @@
 % Please edit documentation in R/pnrf_reader.R
 \name{read_all_channel_data}
 \alias{read_all_channel_data}
-\title{PNRF file all channel data
+\title{Read all channel data from PNRF file
 Always reads sampled data}
 \usage{
 read_all_channel_data(file_path, sampling_rate = 100, ...)
@@ -14,8 +14,11 @@ read_all_channel_data(file_path, sampling_rate = 100, ...)
 
 \item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
 }
+\value{
+PNRFR file object
+}
 \description{
-PNRF file all channel data
+Read all channel data from PNRF file
 Always reads sampled data
 }
 \examples{

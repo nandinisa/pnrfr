@@ -32,6 +32,7 @@ test_that("Handles wrong path, segment, channel", {
 
   save_path <- 'testdata1/test_VT095.csv'
   # Invalid save path
-  expect_error(convert_channel_data_csv(file_path, save_path, channel_no = 3),
-               'Please check if the directory exists and you have read/write access to dir - E:/bit/pnrfprocessor/pnrfr/tests/testthat/testdata1')
+  expect_error(save_channel_data.to_csv(file_path, save_path, channel_no = 3),
+               sprintf('Please check if the directory exists and you have read/write access to dir - %s',
+                       paste(getwd(), 'testdata1', sep='/')))
 })

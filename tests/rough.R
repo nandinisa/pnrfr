@@ -1,10 +1,11 @@
 run_all <- function(){
-  dyn.load('bin/pnrfr.dll')
+  dyn.load('c:/pnrfr/inst/libs/x64/pnrfr.dll')
+  dyn.unload('c:/pnrfr/inst/libs/x64/pnrfr.dll')
 
-  file_path <- 'tests/testthat/testdata/VT095.pnrf'
-  save_path <- 'tests/testthat/testdata/VT095.csv'
-  file_path <- 'E:\\bit\\pnrfprocessor\\experiments\\raw\\VT095.pnrf'
-  save_path <- 'E:\\bit\\pnrfprocessor\\experiments\\raw\\VT095.csv'
+  # file_path <- 'tests/testthat/testdata/VT095.pnrf'
+  # save_path <- 'tests/testthat/testdata/VT095.csv'
+  file_path <- 'C:\\pnrfr\\tests\\testthat\\testdata\\VT095.pnrf'
+  save_path <- 'C:\\pnrfr\\tests\\testthat\\testdata\\VT095.csv'
   source('R/utils.R')
   source('R/pnrf_params.R')
   source('R/pnrf_reader.R')
@@ -13,7 +14,7 @@ run_all <- function(){
   result <- read_channel_data(file_path, channel_no = 3, data_type = 3)
 
   result <- read_file_meta(file_path)
-  result <- read_channel_data_size(file_path, channel_no = 3)
+  result <- read_channel_data_obs(file_path, channel_no = 3)
   result <- read_channel_data(file_path, channel_no = 3, data_type = 3)
   result <- read_segment_data(file_path, channel_no = 3, segment_no = 3)
   result <- read_segment_data(file_path, channel_no = 3, segment_no = 107)

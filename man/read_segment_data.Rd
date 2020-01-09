@@ -2,14 +2,14 @@
 % Please edit documentation in R/pnrf_reader.R
 \name{read_segment_data}
 \alias{read_segment_data}
-\title{Reads the PNRF file's segment data corresponding to a channel}
+\title{Reads the segment data corresponding to a channel}
 \usage{
 read_segment_data(file_path, channel_no, segment_no, ...)
 }
 \arguments{
 \item{file_path}{Path to the PNRF file location, full path or current directory}
 
-\item{channel_no}{channel number to retrieve data}
+\item{channel_no}{Channel number to retrieve data}
 
 \item{segment_no}{Segment number of the corresponding channel}
 
@@ -19,9 +19,15 @@ read_segment_data(file_path, channel_no, segment_no, ...)
 
 \item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
 }
+\value{
+PNRFR file object
+}
 \description{
-Reads the PNRF file's segment data corresponding to a channel
+Reads the segment data corresponding to a channel
 }
 \examples{
-read_channel_data("example.PNRF", 3, 101)
+read_channel_data("example.PNRF", channel_no = 3, segment_no = 101)
+read_channel_data("example.PNRF", channel_no = 3, segment_no = 101, sampling = T)
+read_channel_data("example.PNRF", channel_no = 3, segment_no = 101,
+sampling = T, sampling_rate = 1000)
 }

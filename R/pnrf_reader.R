@@ -2,11 +2,12 @@
 #'
 #' Returns the file meta information: name, record details and channel details.
 #'
-#' @param file_path Path to the PNRF file location, full path or current directory.
+#' @param file_path Path to the PNRF file location, full path or file name in current directory.
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @return A list containing file meta-information: title, recordCount, channelCount, records(list)
 #' @examples
 #' read_file_meta("example.PNRF")
-#' read_file_meta("E:\\temp\\example.PNRF")
+#' read_file_meta("example.PNRF", data_type = 1)
 #' @export
 read_file_meta <- function(file_path, ...){
   file_path = check('f', file_path)
@@ -97,15 +98,17 @@ read_file_meta <- function(file_path, ...){
 
 #' PNRF file channel data size.
 #'
-#' Reads the PNRF file's specified channel data size.
+#' Reads the total no of observations in a given channel.
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param channel_no Channel number to read
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @return Total number of observations in the channel specified (int)
 #' @examples
-#' read_channel_data_size("example.PNRF", 3)
+#' read_channel_data_obs("example.PNRF", channel_no=3)
+#' read_channel_data_obs("example.PNRF", channel_no=3, data_type = 1)
 #' @export
-read_channel_data_size <- function(file_path, channel_no, data_type = 3){
+read_channel_data_obs <- function(file_path, channel_no, data_type = 3){
   file_path = check('f', file_path)
   channel_no = check('c', channel_no)
   data_type = check('dt', data_type)
@@ -129,13 +132,14 @@ read_channel_data_size <- function(file_path, channel_no, data_type = 3){
   return(c_detail$size)
 }
 
-#' PNRF file channel data
+#' Read the channel data from a PNRF file
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param channel_no Channel number to read
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
-#' @param sampling If sampling is required (default = F)
+#' @param sampling Set to True if sampling is required (default = F)
 #' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @return PNRFR file object
 #' @examples
 #' read_channel_data("example.PNRF", 3)
 #' read_channel_data("example.PNRF", 3, sampling = T, sampling_rate = 1000)
@@ -209,12 +213,13 @@ read_channel_data <- function(file_path, channel_no, ...){
 }
 
 
-#' PNRF file all channel data
+#' Read all channel data from PNRF file
 #' Always reads sampled data
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param sampling_rate Rate of sampling (default = 100)
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @return PNRFR file object
 #' @examples
 #' read_all_channel_data("example.PNRF")
 #' @export
@@ -277,16 +282,20 @@ read_all_channel_data <- function(file_path, sampling_rate = 100, ...){
   return(ch_df)
 }
 
-#' Reads the PNRF file's segment data corresponding to a channel
+#' Reads the segment data corresponding to a channel
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
-#' @param channel_no channel number to retrieve data
+#' @param channel_no Channel number to retrieve data
 #' @param segment_no Segment number of the corresponding channel
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @param sampling If sampling is required (default = F)
 #' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @return PNRFR file object
 #' @examples
-#' read_channel_data("example.PNRF", 3, 101)
+#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101)
+#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101, sampling = T)
+#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101,
+#' sampling = T, sampling_rate = 1000)
 #' @export
 read_segment_data <- function(file_path, channel_no, segment_no, ...){
   file_path = check('f', file_path)
@@ -354,7 +363,7 @@ read_segment_data <- function(file_path, channel_no, segment_no, ...){
   return(result)
 }
 
-#' Saves the PNRF file channel data as a csv file
+#' Saves channel data as a csv file
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param save_path Path to the converted csv file location, full path or current directory
@@ -362,10 +371,13 @@ read_segment_data <- function(file_path, channel_no, segment_no, ...){
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @param sampling If sampling is required (default = F)
 #' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @return None
 #' @examples
-#' save_csv("example.PNRF","modified_example.csv", 3)
+#' save_channel_data.to_csv("example.PNRF","example.csv", 3)
+#' save_channel_data.to_csv("example.PNRF","example.csv", 3,
+#' sampling = T, sampling_rate = 1000)
 #' @export
-save_csv <- function(file_path, save_path, channel_no, ...){
+save_channel_data.to_csv <- function(file_path, save_path, channel_no, ...){
   file_path = check('f', file_path)
   save_path = check('dw', save_path)
   channel_no = check('c', channel_no)

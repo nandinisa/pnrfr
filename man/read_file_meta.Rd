@@ -7,14 +7,17 @@
 read_file_meta(file_path, ...)
 }
 \arguments{
-\item{file_path}{Path to the PNRF file location, full path or current directory.}
+\item{file_path}{Path to the PNRF file location, full path or file name in current directory.}
 
 \item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
+}
+\value{
+A list containing file meta-information: title, recordCount, channelCount, records(list)
 }
 \description{
 Returns the file meta information: name, record details and channel details.
 }
 \examples{
 read_file_meta("example.PNRF")
-read_file_meta("E:\\\\temp\\\\example.PNRF")
+read_file_meta("example.PNRF", data_type = 1)
 }

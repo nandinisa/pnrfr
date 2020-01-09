@@ -2,7 +2,7 @@
 % Please edit documentation in R/pnrf_reader.R
 \name{read_channel_data}
 \alias{read_channel_data}
-\title{PNRF file channel data}
+\title{Read the channel data from a PNRF file}
 \usage{
 read_channel_data(file_path, channel_no, ...)
 }
@@ -13,12 +13,15 @@ read_channel_data(file_path, channel_no, ...)
 
 \item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
 
-\item{sampling}{If sampling is required (default = F)}
+\item{sampling}{Set to True if sampling is required (default = F)}
 
 \item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
 }
+\value{
+PNRFR file object
+}
 \description{
-PNRF file channel data
+Read the channel data from a PNRF file
 }
 \examples{
 read_channel_data("example.PNRF", 3)

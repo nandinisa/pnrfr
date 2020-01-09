@@ -1,4 +1,4 @@
-#' Computes the moving average of a given channel within the PNRF file
+#' Computes the moving average of a given channel
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param channel_no Channel number to retrieve data
@@ -6,8 +6,11 @@
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @param sampling If sampling is required (default = F)
 #' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @return PNRFR file object
 #' @examples
-#' compute_moving_average("example.PNRF", 3, 0.01)
+#' compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01)
+#' compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01,
+#' sampling = T, sampling_rate = 1000)
 #' @export
 compute_moving_average <-
   function(file_path,

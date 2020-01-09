@@ -2,7 +2,7 @@
 % Please edit documentation in R/pnrf_computations.R
 \name{compute_moving_average}
 \alias{compute_moving_average}
-\title{Computes the moving average of a given channel within the PNRF file}
+\title{Computes the moving average of a given channel}
 \usage{
 compute_moving_average(file_path, channel_no, window_time, ...)
 }
@@ -19,9 +19,14 @@ compute_moving_average(file_path, channel_no, window_time, ...)
 
 \item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
 }
+\value{
+PNRFR file object
+}
 \description{
-Computes the moving average of a given channel within the PNRF file
+Computes the moving average of a given channel
 }
 \examples{
-read_channel_data("example.PNRF", 3, 0.01)
+compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01)
+compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01,
+sampling = T, sampling_rate = 1000)
 }
