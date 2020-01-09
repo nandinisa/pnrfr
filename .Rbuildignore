@@ -8,3 +8,4 @@
 ^cpp\^output$
 ^doc$
 ^Meta$
+^\.travis\.yml$
