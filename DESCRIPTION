@@ -11,7 +11,7 @@ Description: The package helps read the PNRF file format using HBM compiled PNRF
     the package. 
     The package can be used to retrieve the meta information of the PNRF file giving details like name, description, recorder and channel information and the recorder channel data. The data in the PNRF file can be read as channel data or segment data into memory or saved as a csv file. 
     It can also perform computations like calculating RMS.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
@@ -19,4 +19,6 @@ Imports:
     R.utils(>= 2.9.2)
 Suggests: 
     testthat
+Depends: 
+    R (>= 3.6)
 SystemRequirements: HBM PNRF Reader

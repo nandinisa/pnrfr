@@ -13,20 +13,11 @@ compute_moving_average(file_path, channel_no, window_time, ...)
 
 \item{window_time}{Moving average time interval}
 
-\item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
-
-\item{sampling}{If sampling is required (default = F)}
-
-\item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
+\item{...}{sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE}
 }
 \value{
 PNRFR file object
 }
 \description{
 Computes the moving average of a given channel
-}
-\examples{
-compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01)
-compute_moving_average("example.PNRF", channel_no = 3, window_time = 0.01,
-sampling = T, sampling_rate = 1000)
 }

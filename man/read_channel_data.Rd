@@ -11,11 +11,7 @@ read_channel_data(file_path, channel_no, ...)
 
 \item{channel_no}{Channel number to read}
 
-\item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
-
-\item{sampling}{Set to True if sampling is required (default = F)}
-
-\item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
+\item{...}{sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE}
 }
 \value{
 PNRFR file object
@@ -24,6 +20,7 @@ PNRFR file object
 Read the channel data from a PNRF file
 }
 \examples{
-read_channel_data("example.PNRF", 3)
-read_channel_data("example.PNRF", 3, sampling = T, sampling_rate = 1000)
+result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"), 3)
+result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"), 3,
+sampling = TRUE, sampling_rate = 1000)
 }

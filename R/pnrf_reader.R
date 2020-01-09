@@ -3,11 +3,11 @@
 #' Returns the file meta information: name, record details and channel details.
 #'
 #' @param file_path Path to the PNRF file location, full path or file name in current directory.
-#' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @param ... data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @return A list containing file meta-information: title, recordCount, channelCount, records(list)
 #' @examples
-#' read_file_meta("example.PNRF")
-#' read_file_meta("example.PNRF", data_type = 1)
+#' result <- read_file_meta(system.file("extdata", "VT094.pnrf", package="pnrfr"))
+#' result <- read_file_meta(system.file("extdata", "VT094.pnrf", package="pnrfr"), data_type = 1)
 #' @export
 read_file_meta <- function(file_path, ...){
   file_path = check('f', file_path)
@@ -105,8 +105,10 @@ read_file_meta <- function(file_path, ...){
 #' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @return Total number of observations in the channel specified (int)
 #' @examples
-#' read_channel_data_obs("example.PNRF", channel_no=3)
-#' read_channel_data_obs("example.PNRF", channel_no=3, data_type = 1)
+#' result <- read_channel_data_obs(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+#' channel_no=3)
+#' result <- read_channel_data_obs(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+#' channel_no=3, data_type = 1)
 #' @export
 read_channel_data_obs <- function(file_path, channel_no, data_type = 3){
   file_path = check('f', file_path)
@@ -136,13 +138,14 @@ read_channel_data_obs <- function(file_path, channel_no, data_type = 3){
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param channel_no Channel number to read
-#' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
-#' @param sampling Set to True if sampling is required (default = F)
-#' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @param ... data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @param ... sampling: Set to TRUE if sampling is required (default = FALSE)
+#' @param ... sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE
 #' @return PNRFR file object
 #' @examples
-#' read_channel_data("example.PNRF", 3)
-#' read_channel_data("example.PNRF", 3, sampling = T, sampling_rate = 1000)
+#' result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"), 3)
+#' result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"), 3,
+#' sampling = TRUE, sampling_rate = 1000)
 #' @export
 read_channel_data <- function(file_path, channel_no, ...){
   file_path = check('f', file_path)
@@ -218,10 +221,10 @@ read_channel_data <- function(file_path, channel_no, ...){
 #'
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param sampling_rate Rate of sampling (default = 100)
-#' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @param ... data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
 #' @return PNRFR file object
 #' @examples
-#' read_all_channel_data("example.PNRF")
+#' result <- read_all_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"))
 #' @export
 read_all_channel_data <- function(file_path, sampling_rate = 100, ...){
   file_path = check('f', file_path)
@@ -287,15 +290,17 @@ read_all_channel_data <- function(file_path, sampling_rate = 100, ...){
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param channel_no Channel number to retrieve data
 #' @param segment_no Segment number of the corresponding channel
-#' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
-#' @param sampling If sampling is required (default = F)
-#' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
+#' @param ... data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @param ... sampling: If sampling is required (default = FALSE)
+#' @param ... sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE
 #' @return PNRFR file object
 #' @examples
-#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101)
-#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101, sampling = T)
-#' read_channel_data("example.PNRF", channel_no = 3, segment_no = 101,
-#' sampling = T, sampling_rate = 1000)
+#' result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+#' channel_no = 3, segment_no = 101)
+#' result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+#' channel_no = 3, segment_no = 101, sampling = TRUE)
+#' result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+#' channel_no = 3, segment_no = 101, sampling = TRUE, sampling_rate = 1000)
 #' @export
 read_segment_data <- function(file_path, channel_no, segment_no, ...){
   file_path = check('f', file_path)
@@ -368,14 +373,13 @@ read_segment_data <- function(file_path, channel_no, segment_no, ...){
 #' @param file_path Path to the PNRF file location, full path or current directory
 #' @param save_path Path to the converted csv file location, full path or current directory
 #' @param channel_no Channel number to retrieve data
-#' @param data_type Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
-#' @param sampling If sampling is required (default = F)
-#' @param sampling_rate Rate of sampling (default = 100), applicable if sampling = T
-#' @return None
+#' @param ... data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)
+#' @param ... sampling: If sampling is required (default = FALSE)
+#' @param ... sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE
+#' @return Noneo
 #' @examples
-#' save_channel_data.to_csv("example.PNRF","example.csv", 3)
-#' save_channel_data.to_csv("example.PNRF","example.csv", 3,
-#' sampling = T, sampling_rate = 1000)
+#' save_channel_data.to_csv(system.file("extdata", "VT094.pnrf", package="pnrfr"),"VT094.csv", 3,
+#' sampling = TRUE, sampling_rate = 1000)
 #' @export
 save_channel_data.to_csv <- function(file_path, save_path, channel_no, ...){
   file_path = check('f', file_path)

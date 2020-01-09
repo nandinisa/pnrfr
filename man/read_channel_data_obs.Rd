@@ -20,6 +20,8 @@ Total number of observations in the channel specified (int)
 Reads the total no of observations in a given channel.
 }
 \examples{
-read_channel_data_obs("example.PNRF", channel_no=3)
-read_channel_data_obs("example.PNRF", channel_no=3, data_type = 1)
+result <- read_channel_data_obs(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+channel_no=3)
+result <- read_channel_data_obs(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+channel_no=3, data_type = 1)
 }

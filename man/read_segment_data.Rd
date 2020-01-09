@@ -13,11 +13,7 @@ read_segment_data(file_path, channel_no, segment_no, ...)
 
 \item{segment_no}{Segment number of the corresponding channel}
 
-\item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
-
-\item{sampling}{If sampling is required (default = F)}
-
-\item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
+\item{...}{sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE}
 }
 \value{
 PNRFR file object
@@ -26,8 +22,10 @@ PNRFR file object
 Reads the segment data corresponding to a channel
 }
 \examples{
-read_channel_data("example.PNRF", channel_no = 3, segment_no = 101)
-read_channel_data("example.PNRF", channel_no = 3, segment_no = 101, sampling = T)
-read_channel_data("example.PNRF", channel_no = 3, segment_no = 101,
-sampling = T, sampling_rate = 1000)
+result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+channel_no = 3, segment_no = 101)
+result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+channel_no = 3, segment_no = 101, sampling = TRUE)
+result <- read_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"),
+channel_no = 3, segment_no = 101, sampling = TRUE, sampling_rate = 1000)
 }

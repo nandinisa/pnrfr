@@ -13,20 +13,15 @@ save_channel_data.to_csv(file_path, save_path, channel_no, ...)
 
 \item{channel_no}{Channel number to retrieve data}
 
-\item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
-
-\item{sampling}{If sampling is required (default = F)}
-
-\item{sampling_rate}{Rate of sampling (default = 100), applicable if sampling = T}
+\item{...}{sampling_rate: Rate of sampling (default = 100), applicable if sampling = TRUE}
 }
 \value{
-None
+Noneo
 }
 \description{
 Saves channel data as a csv file
 }
 \examples{
-save_channel_data.to_csv("example.PNRF","example.csv", 3)
-save_channel_data.to_csv("example.PNRF","example.csv", 3,
-sampling = T, sampling_rate = 1000)
+save_channel_data.to_csv(system.file("extdata", "VT094.pnrf", package="pnrfr"),"VT094.csv", 3,
+sampling = TRUE, sampling_rate = 1000)
 }

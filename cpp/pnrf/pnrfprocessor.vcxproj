@@ -136,7 +136,7 @@
       <ModuleDefinitionFile>def/dllwrapper.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)output\$(Configuration)\$(Platform)\pnrfr.dll" "$(SolutionDir)..\inst\libs\$(Platform)\" /Y</Command>
+      <Command>xcopy "$(SolutionDir)output\$(Configuration)\$(Platform)\pnrfr.dll" "$(SolutionDir)..\inst\libs\i386\" /Y</Command>
       <Message>Copy build output to R bin</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -185,7 +185,7 @@
       <ModuleDefinitionFile>def/dllwrapper.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)output\$(Configuration)\$(Platform)\pnrfr.dll" "$(SolutionDir)..\inst\libs\$(Platform)\" /Y</Command>
+      <Command>xcopy "$(SolutionDir)output\$(Configuration)\$(Platform)\pnrfr.dll" "$(SolutionDir)..\inst\libs\i386\" /Y</Command>
       <Message>Copy build output to R bin</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>

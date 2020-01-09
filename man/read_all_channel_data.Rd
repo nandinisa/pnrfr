@@ -12,7 +12,7 @@ read_all_channel_data(file_path, sampling_rate = 100, ...)
 
 \item{sampling_rate}{Rate of sampling (default = 100)}
 
-\item{data_type}{Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
+\item{...}{data_type: Type of data to retrieve : continuous 1, sweeps = 2, mixed = 3 (default = 3)}
 }
 \value{
 PNRFR file object
@@ -22,5 +22,5 @@ Read all channel data from PNRF file
 Always reads sampled data
 }
 \examples{
-read_all_channel_data("example.PNRF")
+result <- read_all_channel_data(system.file("extdata", "VT094.pnrf", package="pnrfr"))
 }
