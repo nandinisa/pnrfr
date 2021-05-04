@@ -9,6 +9,9 @@ The R package pnrfr helps to read channel data and meta information from PNRF fi
 ), which is windows dependant. Thus, the package is only supported on windows machine.
 
 
+## Reference paper
+S. Kandanaarachchi, N. Anantharama and M. A. Munoz, "Early detection of vegetation ignition due to powerline faults," in IEEE Transactions on Power Delivery, doi: 10.1109/TPWRD.2020.3006553
+
 ## Installation
 
 
